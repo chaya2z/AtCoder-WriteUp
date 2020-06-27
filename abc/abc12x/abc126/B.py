@@ -1,5 +1,14 @@
-# S=input()
-# if int(S[:2])
+S = input()
 
-s = int(input())
-print(['NA', 'MMYY', 'YYMM', 'AMBIGUOUS'][(9 < s < 1000) - (0 < s % 100 < 13) * 2])
+if 0 < int(S[:2]) <= 12 and 0 < int(S[2:]) <= 12:
+    print('AMBIGUOUS')
+    exit()
+elif 0 < int(S[:2]) <= 12:
+    print('MMYY')
+    exit()
+elif 0 < int(S[2:]) <= 12:
+    print('YYMM')
+    exit()
+else:
+    print('NA')
+    exit()
