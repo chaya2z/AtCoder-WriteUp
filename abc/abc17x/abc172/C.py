@@ -1,16 +1,30 @@
-def main():
-    N, M, K = map(int, input().split())
-    A_int_list = list(map(int, input().split()))
-    B_int_list = list(map(int, input().split()))
+# 入力
+N, M, K = map(int, input().split())
+A = list(map(int, input().split()))
+B = list(map(int, input().split()))
 
-    
+# A_i, B_i までの合計
+a, b = [0], [0]
+for i in range(N):
+    a.append(a[i] + A[i])
+for i in range(M):
+    b.append(b[i] + B[i])
 
-
-
-if __name__ == '__main__':
-    main()
-
-
+# B_j < K - A_i
+#
+# for
+# A_1, A_2...A_N というように増えていく
+ans, j = 0, M
+for i in range(N + 1):
+    # Aの合計がKを超えたらBが入り込む余地はない
+    if a[i] > K:
+        break
+    # A_i のときのBの最大個数を求める
+    while b[j] > K - a[i]:
+        j -= 1
+    ans = max(ans, i + j)
+# 全部のパターンを試したあと最大の個数が求まっている
+print(ans)
 
 
 # def main():
