@@ -3,14 +3,15 @@ import math
 N = int(input())
 A = list(map(int, input().split()))
 
-a = A[0]
+# num is numerator
+# den is denominator
+num, den = A[0], 0
 
-for i in range(1, N):
-    a = (a * A[i]) // math.gcd(a, A[i])
+for i in A:
+    num = (num * i) // math.gcd(num, i)
 
-b = 0
+for i in A:
+    den += num // i
 
-for i in range(N):
-    b += a // A[i]
-
-print(a / b)
+ans = num / den
+print(ans)
