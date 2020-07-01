@@ -1,9 +1,10 @@
 A, B = map(int, input().split())
 
-for i in range(1, 1000000):
-    if B <= (A * i) - (i - 1):
-        print(i)
-        exit()
+ans = 1
+i = 0
+while ans < B:
+    ans += A - 1
+    i += 1
 
-
+print(i)
 
