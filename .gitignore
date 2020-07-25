@@ -146,7 +146,7 @@ MANIFEST
 pip-log.txt
 pip-delete-this-directory.txt
 
-# Unit test / coverage reports
+# Unit M-SOLUTIONS_2020 / coverage reports
 htmlcov/
 .tox/
 .nox/
